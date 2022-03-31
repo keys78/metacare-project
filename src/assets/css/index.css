@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Gelion-regular';
+  src: url('../fonts/Gelion\ Regular.ttf');
+}
+@font-face {
+  font-family: 'Gelion-bold';
+  src: url('../fonts/Gelion\ Bold.ttf');
+}
+
+body {
+  font-family: 'Gelion-regular';
+}
+
+.family-bold { font-family: 'Gelion-bold';}
+.color-primary { color: #696D8C ;}
+.color-secondary { color: #6837EF;}
+.color-tet { color: #060213; }
+
+.sublink-active { font-weight: 700; border-left: 1px solid #ECEBF5 !important;}
+.rotate { transform: rotate(90deg); transition: 0.3s;}
+.nav-link { border-bottom: 2px solid transparent; }
+.active { border-bottom: 2px solid #6837EF; color: #060213; font-weight: 700;}
+
+
+.tabs-list {
+  border-top: 1px solid #ECEBF5;
+  border-bottom: 1px solid #ECEBF5;
+  display: flex;
+  align-items: center;
+  padding:17px 56px 0 56px;
+}
