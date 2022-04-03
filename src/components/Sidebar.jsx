@@ -3,13 +3,26 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { dummyOptions, navLinks, options } from '../utils/data'
 import Dropdown from './Dropdown'
+import { IconContext } from "phosphor-react";
 
 const Sidebar = () => {
     const [activeNavLink, setActiveNavLinks] = useState(5)
+
+    const altIcon = ({ nav, i }) =>
+        <IconContext.Provider
+            value={{
+                color: (i === activeNavLink ? '#6837EF' : '#696D8C'),
+                size: 20,
+            }}
+        >
+            {<span>{nav.icon}</span>}
+        </IconContext.Provider>
+
     const renderNavLinks = navLinks.map((nav, i) => (
         <div key={i}>
             <Dropdown
                 options={nav.title === 'Analytics' ? options : dummyOptions}
+                renderIcons={altIcon({ nav, i })}
                 renderNavLinks={<span className={i === activeNavLink ? 'color-secondary' : ''}>{nav.title}</span>}
                 activateLink={() => setActiveNavLinks(i)}
             />

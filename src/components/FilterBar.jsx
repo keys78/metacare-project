@@ -7,13 +7,13 @@ const FilterBar = ({ options, newSelected, label, onClick }) => {
     const [selected, setSelected] = useState(newSelected)
     const [isDropped, setIsDropped] = useState(false)
     const caretDownBlack = 'images/caret_down_black.png'
-    const optionsRef = useRef()
+    const zoptionsRef = useRef()
     
-    // useEffect(() => { document.body.addEventListener('mousedown', handleClickOutside) })
-    // const handleClickOutside = (event) => {
-    //     optionsRef.current && !optionsRef.current.contains(event.target) && setSelected(newSelected)
-    //     // optionsRef.current && !optionsRef.current.contains(event.target) && setIsDropped(!isDropped)
-    // };
+    useEffect(() => { document.body.addEventListener('mousedown', handleClickOutside) })
+    const handleClickOutside = (event) => {
+        zoptionsRef.current && !zoptionsRef.current.contains(event.target) && setSelected(newSelected)
+        // zoptionsRef.current && !zoptionsRef.current.contains(event.target) && setIsDropped(!isDropped)
+    };
 
 
 
@@ -24,7 +24,7 @@ const FilterBar = ({ options, newSelected, label, onClick }) => {
 
    
     return (
-        <SelectBoxWrapper ref={optionsRef}>
+        <SelectBoxWrapper ref={zoptionsRef}>
             <Label>{label}</Label>
             <SelectBoxContainer onClick={() => setIsDropped(!isDropped)}>
                 <h5 className='family-bold text-base'>{selected}</h5>

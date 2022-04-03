@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components';
 import { navLinks } from '../utils/data';
 
-const Dropdown = ({ renderNavLinks, options, activateLink }) => {
+const Dropdown = ({ renderNavLinks, renderIcons, options, activateLink }) => {
     const [isDropped, setIsDropped] = useState(false)
     const [activeSubLinks, setActiveSubLinks] = useState(0)
     const optionsRef = useRef()
@@ -31,8 +31,7 @@ const Dropdown = ({ renderNavLinks, options, activateLink }) => {
         <SingeDropdownWrapper ref={optionsRef} onClick={activateLink}>
             <SingleDropHandler onClick={() => setIsDropped(!isDropped)}>
                 <span>
-                    <img src="images/icon_admin.png"
-                        alt="icon" />
+                    {renderIcons}
                 </span>
                 <h1
                     className='color-primary text-base'>
@@ -73,10 +72,20 @@ const SubLinks = styled.p`
 const DropdownContainer = styled.div`
     padding-left: 16px;
     margin-top: 8px;
+
 `
 
 const SingeDropdownWrapper = styled.div`
     margin-bottom: 26px;
+    &:hover {
+        span:nth-of-type(1) {
+        animation: roll-in 0.4s;
+
+    @keyframes roll-in {
+     0% { opacity: 0; transform: translateX(-100%) rotate(-120deg); }
+     100% { opacity: 1; transform: translateX(0px) rotate(0deg); }}
+ } }
+   
 `
 
 export default Dropdown;
