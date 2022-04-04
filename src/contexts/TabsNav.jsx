@@ -33,7 +33,13 @@ const TabsWrapper = styled.div`
     background: #fff;
    
 
-    & > div { padding: 0 56px;}
+    & > div { padding: 0 56px;
+        
+        
+  @media screen and (max-width: 850px){
+        padding: 0 15px;
+    }
+    }
 
     @media screen and (max-width: 1280px){
         margin-left: 0;

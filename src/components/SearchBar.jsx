@@ -30,14 +30,13 @@ const SearchContainer = styled.div`
     background:${({custom}) => (custom ? '#fff' : '#FAFAFC')} ;
     border-radius: 10px;
 
-    /* @media screen and (max-width: 1024px){
-       margin-bottom: 40px;
-       width: 100%;
+     @media screen and (max-width: 1024px){
+        width: ${({custom}) => (custom ? '350px' : '341px')} ;
     }
 
-    @media screen and (max-width: 640px){
+    /* @media screen and (max-width: 640px){
        margin-bottom: 20px;
-    } */
+    }  */
 
   
 

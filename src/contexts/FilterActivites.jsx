@@ -31,13 +31,13 @@ const FilterActivites = ({ titleHead }) => {
             // <div key={i}>
             //    <p>title: {val.title}</p>
 
-                <CustomChart key={i}
-                    chartLabel={val.title}
-                    background={val.bgColor}
-                    borderColor={val.bgColor}
-                    pointerBorderColor={val.bgColor}
-                    label={val.title}
-                />
+            <CustomChart key={i}
+                chartLabel={val.title}
+                background={val.bgColor}
+                borderColor={val.bgColor}
+                pointerBorderColor={val.bgColor}
+                label={val.title}
+            />
             // </div>
         ))
 
@@ -70,20 +70,23 @@ const FilterActivites = ({ titleHead }) => {
 
     return (
         <>
-        <div className='titlehead-positioning bg-white'>
+            <div className='titlehead-positioning bg-white'>
 
- 
-            <div className='flex items-center justify-between'>
-                <h1 className='text-2xl color-tet family-bold'>{titleHead}</h1>
 
-                <div className='flex items-center space-x-6 py-8'>
-                    <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} custom placeholder={'Search'} />
-                    <FilterBar options={options} newSelected={'Default'} />
-                    <span className='opacity-40 '>|</span>
-                    <Button text={'Export'} />
+                <div className='flex lg:flex-row flex-col lg:items-center justify-between'>
+                    <h1 className='lg:text-2xl text-xl color-tet family-bold lg:pt-0 pt-4'>{titleHead}</h1>
+
+                    <div className='flex items-center lg:justify-center justify-between space-x-6 lg:py-8 py-2 lg:pt-0 pt-4'>
+                        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} custom placeholder={'Search'} />
+                        <div className='flex items-center space-x-2'>
+                            <FilterBar options={options} newSelected={'Default'} />
+                            <span className='opacity-40 '>|</span>
+                            <Button text={'Export'} />
+                        </div>
+
+                    </div>
                 </div>
             </div>
-    </div>
 
             {titleHead === 'Efficiency Analytics' &&
                 <ChartsDisplay className='border-2 border-red-500'>

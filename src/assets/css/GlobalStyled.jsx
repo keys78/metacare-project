@@ -10,4 +10,8 @@ export const ContentWrapper = styled.section`
   @media screen and (max-width: 1280px){
         margin-left: 0;
     }
+
+  @media screen and (max-width: 850px){
+        padding: 0 15px;
+    }
 `

@@ -91,16 +91,16 @@ const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, la
 
       </ChartContainer>
 
-      <div className='flex flex-col space-y-5 py-8 px-6'>
+      <TimeStampsWrapper className='flex flex-col space-y-5 py-8 px-6'>
         <TimeContainer>
           <h2 className='lg:text-sm text-xs pb-2 color-tet'>Response Time</h2>
           <h1 className='lg:text-xl text-sm color-tet family-bold'>30 Mins</h1>
         </TimeContainer>
         <TimeContainer>
-          <h2 className='text-sm pb-2 color-tet'>Response Time</h2>
-          <h1 className='text-xl color-tet family-bold'>1 Hour 30 Mins</h1>
+          <h2 className='lg:text-sm text-xs pb-2 color-tet'>Response Time</h2>
+          <h1 className='lg:text-xl text-sm color-tet family-bold'>1 Hour 30 Mins</h1>
         </TimeContainer>
-      </div>
+      </TimeStampsWrapper>
 
     </ChartWrapper>
   )
@@ -113,6 +113,10 @@ const ChartWrapper = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   margin-bottom: 24px;
+
+  @media screen and (max-width: 850px){
+       grid-template-columns: 100%;
+    }
 `
 
 const ChartContainer = styled.div`
@@ -131,6 +135,10 @@ const TimeContainer = styled.div`
   @media screen and (max-width: 1024px){
         min-width: 140px;
     }
+
+    @media screen and (max-width: 850px){
+      padding: 18px 12px;
+    }
 `
 
 const CalendarClick = styled.div`
@@ -144,6 +152,12 @@ const Priority = styled.div`
     border-radius: 2px;
     /* padding:10px; */ height: 10px; width: 10px;
 }
+`
+
+const TimeStampsWrapper = styled.div`
+    @media screen and (max-width: 850px){
+      padding: 0 12px !important;
+    }
 `
 
 
