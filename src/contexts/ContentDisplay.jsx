@@ -5,12 +5,15 @@ import { ContentWrapper } from '../assets/css/GlobalStyled'
 
 const ContentDisplay = () => {
     return (
-        <>
+       <>
+        {/* <div className='border-2 border-black'> */}
             <ContentWrapper>
                 <TopBar />
             </ContentWrapper>
+            
             <TabsNav />
-        </>
+              {/* </div> */}
+      </>
     )
 }
 

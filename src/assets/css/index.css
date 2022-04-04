@@ -34,4 +34,13 @@ body {
   display: flex;
   align-items: center;
   padding:17px 56px 0 56px;
+  /* position: fixed;
+  top: 70px;
+  width: 100%; */
 }
+
+/* .titlehead-positioning {
+  position: fixed;
+  top: 131px;
+  width: 100%;
+} */

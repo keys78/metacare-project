@@ -21,7 +21,7 @@ const Tabs = ({ children, active = 0 }) => {
 
     return (
         <>
-            <ul className='tabs-list space-x-10'>
+            <ul className='tabs-list space-x-10 bg-white'>
                 {
                     tabsData.map(({ tab }, idx) => (
                         <TabsList key={idx}>

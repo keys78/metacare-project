@@ -57,6 +57,10 @@ const SideBarWrapper = styled.section`
     & > div:nth-of-type(1) > div { padding:12px 47px 11px 57px; } 
     & > div:nth-of-type(1) > div > h1 { font-family: 'Gelion-regular'; font-weight: 600; font-size: 14px; line-height: 22px; } 
     & > div:nth-of-type(1) > div > h6 { font-weight: 400; font-size: 12px; line-height: 20px; color: #696D8C; } 
+
+    @media screen and (max-width: 1280px){
+        display: none;
+    }
 `
 
 export default Sidebar

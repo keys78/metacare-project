@@ -93,8 +93,8 @@ const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, la
 
       <div className='flex flex-col space-y-5 py-8 px-6'>
         <TimeContainer>
-          <h2 className='text-sm pb-2 color-tet'>Response Time</h2>
-          <h1 className='text-xl color-tet family-bold'>30 Mins</h1>
+          <h2 className='lg:text-sm text-xs pb-2 color-tet'>Response Time</h2>
+          <h1 className='lg:text-xl text-sm color-tet family-bold'>30 Mins</h1>
         </TimeContainer>
         <TimeContainer>
           <h2 className='text-sm pb-2 color-tet'>Response Time</h2>
@@ -126,6 +126,11 @@ const TimeContainer = styled.div`
   border: 1px solid #ECEBF5;
   border-radius: 10px;
   padding:30px 30px 24px 16px;
+  min-width: 180px;
+
+  @media screen and (max-width: 1024px){
+        min-width: 140px;
+    }
 `
 
 const CalendarClick = styled.div`
