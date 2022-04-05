@@ -32,8 +32,8 @@ const InputBox = styled.input`
     }
 
     @media screen and (max-width: 540px){
-        padding: 7px 0 7px 12px;
-        font-size: 12px;
+        padding: 15px 0 13px 12px;
+        font-size: 14px;
     }
 `
 

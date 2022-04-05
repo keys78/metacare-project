@@ -15,7 +15,9 @@ const TopBar = () => {
             </div>
             <div className="flex space-x-4 items-center">
                 <ActivityBar />
-                <List size={24} color="#696D8C" weight="bold" />
+                <HamburgerToggle>
+                <List size={30} color="#696D8C" weight="bold" />
+                </HamburgerToggle>
             </div>
         </TopBarWrapper>
     )
@@ -27,8 +29,30 @@ const TopBarWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* width: 100%; */
     background: #fff;
+
+    & > div:nth-of-type(1) { display: none; 
+        @media screen and (max-width: 650px){
+            display: block ;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+        display: grid;
+        grid-template-columns:repeat(2, 1fr);
+
+        & > div:nth-of-type(2) { order: 3; grid-column: span 2 / span 2; margin-top: 8px;}
+        & > div:nth-of-type(3) { justify-content: end;}
+    }
+`
+
+const HamburgerToggle = styled.div`
+    display:none ;
+
+    
+    @media screen and (max-width: 1280px){
+        display: block;
+    }
 `
 
 export default TopBar;

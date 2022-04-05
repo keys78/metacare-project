@@ -34,9 +34,9 @@ const SearchContainer = styled.div`
         width: ${({custom}) => (custom ? '350px' : '341px')} ;
     }
 
-    /* @media screen and (max-width: 640px){
-       margin-bottom: 20px;
-    }  */
+    @media screen and (max-width: 650px){
+        width: ${({custom}) => (custom ? '100%' : '100%')} ;
+    } 
 
   
 

@@ -63,16 +63,16 @@ const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, la
     <ChartWrapper >
 
       <ChartContainer>
-        <div className='flex items-center justify-between mb-5 pl-2'>
+        <div className='flex sm:flex-row flex-col sm:items-center items-start justify-between mb-5 pl-2'>
 
-          <PBox className='space-x-4 flex items-center'>
+          <PBox className='space-x-4 flex items-center sm:mb-0 mb-4'>
             <h1 className='family-bold'>{chartLabel}</h1>
             <div className='text-xs'>
               4.14%
             </div>
           </PBox>
 
-          <div className='flex space-x-4 items-center'>
+          <div className='flex  sm:space-x-4 space-x-1 items-center '>
             <Priority className='flex space-x-2 items-center'>
               <div style={{ background: background }}></div>
               <h1 className='text-sm color-tet'>High Priority</h1>
@@ -167,6 +167,7 @@ const PBox = styled.div`
     border-radius: 4px;
     color: #25BB87;
     padding:4px 12px;
+    float:left ;
     }
 `
 export default CustomChart;

@@ -68,7 +68,7 @@ const SelectBoxContainer = styled.div`
     
 
     @media screen and (max-width: 540px){
-        padding: 7px 10px 6px 10px;
+        padding: 12px 10px 12px 8px;
     }
     
 `
