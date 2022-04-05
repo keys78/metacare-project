@@ -31,16 +31,11 @@ const TabsNav = () => {
 const TabsWrapper = styled.div`
     margin-left: 262px;
     background: #fff;
-   
+    margin-top:  76px;
 
-    & > div { padding: 0 56px;
-        
-        
-  @media screen and (max-width: 850px){
-        padding: 0 15px;
+    @media screen and (max-width: 650px){
+        margin-top: 135px;
     }
-    }
-
     @media screen and (max-width: 1280px){
         margin-left: 0;
     }

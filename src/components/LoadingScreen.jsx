@@ -7,9 +7,7 @@ function LoadingScreen() {
       <div className="line">
         <div className="inner"></div>
       </div>
-    </div>
-   
-      
+    </div>   
   )
 }
 

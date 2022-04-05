@@ -20,7 +20,7 @@ const Tabs = ({ children, active = 0 }) => {
     }, [children])
 
     return (
-        <>
+        <div>
             <ul className='tabs-list space-x-10 bg-white'>
                 {
                     tabsData.map(({ tab }, idx) => (
@@ -38,7 +38,7 @@ const Tabs = ({ children, active = 0 }) => {
             <div className='tab-content'>
                 {tabsData[activeTab] && tabsData[activeTab].children}
             </div>
-        </>
+        </div>
     )
 }
 

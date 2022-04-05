@@ -8,13 +8,12 @@ import { filterOptions as options } from '../utils/data'
 
 
 
+
 const FilterActivites = ({ titleHead }) => {
     const [searchTerm, setSearchTerm] = useState('')
-    const [allCharts, setAllCharts] = useState('')
+    const [allCharts, setAllCharts] = useState([])
 
     const [def, setdef] = useState('')
-
-
 
     const Arr = [
         { title: 'Average response time', bgColor: '#F05D23' },
@@ -25,11 +24,22 @@ const FilterActivites = ({ titleHead }) => {
 
 
 
-    useEffect(() => {
-        const renderCharts = Arr.map((val, i) => (
 
-            // <div key={i}>
-            //    <p>title: {val.title}</p>
+    // useEffect(() => {
+    //     const xy = Arr && Arr.map((val) => val.title)
+    //     setAllCharts(xy)
+    // }, [])
+
+    // const jsxArray = dataItems.filter(item => item.isActive).map(item => (
+    //     <div>
+    //       <h3>{item.title}</p>
+    //       <p>{item.body}</p>
+    //       <p customAttribute={item.isActive} >{item.tags}</p>    
+    //     </div>
+    //   ))
+
+    useEffect(() => {
+        const renderCharts = Arr && Arr.map((val, i) => (
 
             <CustomChart key={i}
                 chartLabel={val.title}
@@ -38,43 +48,33 @@ const FilterActivites = ({ titleHead }) => {
                 pointerBorderColor={val.bgColor}
                 label={val.title}
             />
-            // </div>
         ))
-
         setAllCharts(renderCharts)
         setdef(renderCharts)
     }, [])
 
     // useEffect(() => {
+
     //     if (searchTerm !== '') {
-    //         const searchFilter = Arr && Arr.filter((chart) =>
-    //             chart.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) 
-    //         )
-    //         setAllCharts('Hello Worlds')
-    //     } else {
-    //         return setAllCharts(def)
+    //         const searchFilter =  Arr && Arr.filter((chart) =>  chart.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())  )
+    //         setAllCharts(searchFilter)
+    //         console.log(searchFilter)
     //     }
-    //     // if (searchTerm !== '') {
-    //     //     const searchFilter =  allCharts && allCharts.filter((chart) =>
-    //     //         chart.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()) 
-    //     //     )
-    //     //     setAllCharts(searchFilter)
-    //     // }
-    //     //  else {
-    //     //     setAllCharts(allCharts)
-    //     // }
-    //     // return setAllCharts(def)
+    //      else {
+    //         setAllCharts(Arr.map((val) => val.title))
+    //     }
     // }, [searchTerm])
 
 
 
+
     return (
-        <>
-            <div className='titlehead-positioning bg-white'>
+        <ChartScreen>
+            <div id="header" className='titlehead-positioning bg-white'>
 
 
-                <div className='flex lg:flex-row flex-col lg:items-center justify-between'>
-                    <h1 className='lg:text-2xl text-xl color-tet family-bold lg:pt-0 pt-4'>{titleHead}</h1>
+                <div className='loco flex lg:flex-row flex-col lg:items-center justify-between pt-16'>
+                    <h1 className='x-class lg:text-2xl text-xl color-tet family-bold lg:pt-0 pt-4'>{titleHead}</h1>
 
                     <ActionCenterWrapper className='flex items-center lg:justify-center justify-between space-x-6 lg:py-8 py-2 lg:mt-0 mt-4'>
                         <div>
@@ -99,7 +99,7 @@ const FilterActivites = ({ titleHead }) => {
             {titleHead !== 'Efficiency Analytics' &&
                 <div>No Data Available</div>
             }
-        </>
+        </ChartScreen>
     )
 }
 
@@ -108,6 +108,14 @@ const ChartsDisplay = styled.div`
     top: 250px;
     width: 100%; */
     /* margin-top: 250px; */
+`
+
+const ChartScreen = styled.div`
+    padding: 0 56px;
+
+    @media screen and (max-width: 850px){
+        padding: 0 15px;
+    }
 `
 
 const ActionCenterWrapper = styled.div`

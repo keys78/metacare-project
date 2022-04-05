@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-// import caretDownBlack from '../
 
 
 const FilterBar = ({ options, newSelected, label, onClick }) => {
@@ -8,21 +7,22 @@ const FilterBar = ({ options, newSelected, label, onClick }) => {
     const [isDropped, setIsDropped] = useState(false)
     const caretDownBlack = 'images/caret_down_black.png'
     const zoptionsRef = useRef()
-    
+
     useEffect(() => { document.body.addEventListener('mousedown', handleClickOutside) })
     const handleClickOutside = (event) => {
         zoptionsRef.current && !zoptionsRef.current.contains(event.target) && setSelected(newSelected)
-        // zoptionsRef.current && !zoptionsRef.current.contains(event.target) && setIsDropped(!isDropped)
     };
 
 
-
-    const renderOptions = options !== null && options.map((val, i) =>
-        <h5 key={i} onClick={() => onClick(val, setSelected(val.option), setIsDropped(!isDropped))}>{val.option}</h5>
+    const renderOptions = options !== null && options && options.map((val, i) =>
+        <h5
+            key={i}
+            onClick={() => onClick(val, setSelected(val.option), setIsDropped(!isDropped))}>
+            {val.option}
+        </h5>
     )
 
 
-   
     return (
         <SelectBoxWrapper ref={zoptionsRef}>
             <Label>{label}</Label>

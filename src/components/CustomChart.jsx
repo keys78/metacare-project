@@ -120,7 +120,6 @@ const ChartWrapper = styled.div`
 `
 
 const ChartContainer = styled.div`
-  /* max-width: 1200px; */
   border-right: 1px solid #ECEBF5;
   padding: 24px;
 `
@@ -133,7 +132,7 @@ const TimeContainer = styled.div`
   min-width: 180px;
 
   @media screen and (max-width: 1024px){
-        min-width: 140px;
+        min-width: 120px;
     }
 
     @media screen and (max-width: 850px){
@@ -150,13 +149,13 @@ const Priority = styled.div`
   & div {
     background: #F05D23;
     border-radius: 2px;
-    /* padding:10px; */ height: 10px; width: 10px;
+   height: 10px; width: 10px;
 }
 `
 
 const TimeStampsWrapper = styled.div`
     @media screen and (max-width: 850px){
-      padding: 0 12px !important;
+      padding: 0 12px 10px 12px !important;
     }
 `
 

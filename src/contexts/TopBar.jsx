@@ -4,19 +4,19 @@ import ActivityBar from '../components/ActivityBar'
 import SearchBar from '../components/SearchBar'
 import { List } from 'phosphor-react'
 
-const TopBar = ({setIsNavOpen, isNavOpen}) => {
+const TopBar = ({ setIsNavOpen, isNavOpen }) => {
     return (
-        <TopBarWrapper>
-            <div>
+        <TopBarWrapper >
+            <div className='z-50'>
                 <img className="w-12" src="images/notion_logo.png" alt="logo" />
             </div>
-            <div>
+            <div className='z-50'>
                 <SearchBar placeholder={'Ask us any question'} />
             </div>
-            <div className="flex space-x-4 items-center">
+            <div className="flex space-x-4 items-center z-50">
                 <ActivityBar />
                 <HamburgerToggle>
-                <List size={30} onClick={() => setIsNavOpen(!isNavOpen)} color="#696D8C" weight="bold" />
+                    <List size={30} onClick={() => setIsNavOpen(!isNavOpen)} color="#696D8C" weight="bold" />
                 </HamburgerToggle>
             </div>
         </TopBarWrapper>

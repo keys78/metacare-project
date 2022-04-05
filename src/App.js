@@ -12,8 +12,8 @@ function App() {
   }
   useEffect(() => {
     pageLoader();
-  },[])
- 
+  }, [])
+
 
   return (
     <div>

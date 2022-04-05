@@ -1,9 +1,8 @@
-import React, { useState }  from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 
 const ActivityBar = () => {
-    const [isToggleOpen, setIsToggleOpen] = useState(false)
     const userIcon = 'images/user_icon.png'
     const notifIcon = 'images/icon_bell.png'
     const caretDown = 'images/caret_down.png'
@@ -17,17 +16,8 @@ const ActivityBar = () => {
             <span className='opacity-40'>|</span>
             <div className='flex space-x-1 items-center'>
                 <img src={userIcon} alt="user_icon" />
-                <img className='cursor-pointer' onClick={() => alert('open')} src={caretDown} alt="caret_down" />
+                <img className='cursor-pointer' onClick={() => alert('user action')} src={caretDown} alt="caret_down" />
             </div>
-
-            {/* {isToggleOpen &&
-            <ToggleDrop>
-                <h1>Accounts</h1>
-                <h1>Settings</h1>
-                <div/>
-                <h1>Logout</h1>
-            </ToggleDrop>
-            } */}
         </ActivityWrapper>
     )
 }
@@ -40,6 +30,7 @@ const ActivityWrapper = styled.div`
     border: 1px solid #ECEBF5;
     border-radius: 8px;
     position: relative;
+    background:#fff ;
 
     & > div:nth-of-type(1) > div {
         background: #F25A68;
@@ -50,10 +41,6 @@ const ActivityWrapper = styled.div`
         
     }
 
-`
-
-const ToggleDrop = styled.div`
-    
 `
 
 export default ActivityBar
