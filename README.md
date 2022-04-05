@@ -10,7 +10,7 @@ Metacare Frontend Task<br>
 5. To run tests cases, type  `yarn test` in your terminal/ssh client
 
 
-[Link to live => emmauel-metacare-task.netlify.app/](https://emmanuel-metacare-task.netlify.app/)
+[Link to live => emmanuel-metacare-task.netlify.app/](https://emmanuel-metacare-task.netlify.app/)
 
 ## The Challenge
 Replicate exactly and make interactive the UI provided
