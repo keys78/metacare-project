@@ -93,7 +93,6 @@ const ChartScreen = styled.div`
 `
 
 const ActionCenterWrapper = styled.div`
-
      @media screen and (max-width: 650px){
         display: grid;
         grid-template-columns:repeat(2, 1fr);
