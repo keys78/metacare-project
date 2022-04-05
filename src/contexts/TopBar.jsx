@@ -49,6 +49,7 @@ const TopBarWrapper = styled.div`
 const HamburgerToggle = styled.div`
     display:none ;
     position: relative ;
+    cursor: pointer;
 
     
     @media screen and (max-width: 1280px){

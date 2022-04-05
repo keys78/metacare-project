@@ -43,3 +43,21 @@ export const UserData = [
     { id: 7, month:'Jul', time: 42, pointRadius: 5, },
     { id: 8, month:'Aug', time: 31, pointRadius: 5, },
 ]
+
+
+export const chartData = [
+    { title: 'Average response time', bgColor: '#F05D23' },
+    { title: 'Replies per resolution', bgColor: '#3E68FF' },
+    { title: 'Average resolution time', bgColor: '#FB6491' },
+    { title: 'First contact resolution rate', bgColor: '#07C9E2' },
+]
+
+
+export const errorSearchResponse = [
+    <div className="w-full flex justify-center">
+        <div>
+            <img className="w-36" src="images/funny_cat.gif" alt="placeholder" />
+            <h1>No results found for this search...</h1>
+        </div>
+    </div>
+]

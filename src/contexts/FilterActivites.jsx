@@ -4,43 +4,28 @@ import FilterBar from '../components/FilterBar'
 import SearchBar from '../components/SearchBar'
 import CustomChart from '../components/CustomChart'
 import styled from 'styled-components'
-import { filterOptions as options } from '../utils/data'
+import { filterOptions as options, chartData, errorSearchResponse } from '../utils/data'
+
 
 
 
 
 const FilterActivites = ({ titleHead }) => {
     const [searchTerm, setSearchTerm] = useState('')
-    const [allCharts, setAllCharts] = useState([])
+    const [allData, setAllData] = useState(chartData);
+    const [filteredData, setFilteredData] = useState(allData);
 
-    const [def, setdef] = useState('')
-
-    const Arr = [
-        { title: 'Average response time', bgColor: '#F05D23' },
-        { title: 'Replies per resolution', bgColor: '#3E68FF' },
-        { title: 'Average resolution time', bgColor: '#FB6491' },
-        { title: 'First contact resolution rate', bgColor: '#07C9E2' },
-    ]
-
-
-
-
-    // useEffect(() => {
-    //     const xy = Arr && Arr.map((val) => val.title)
-    //     setAllCharts(xy)
-    // }, [])
-
-    // const jsxArray = dataItems.filter(item => item.isActive).map(item => (
-    //     <div>
-    //       <h3>{item.title}</p>
-    //       <p>{item.body}</p>
-    //       <p customAttribute={item.isActive} >{item.tags}</p>    
-    //     </div>
-    //   ))
 
     useEffect(() => {
-        const renderCharts = Arr && Arr.map((val, i) => (
+        let result = [];
+        result = allData && allData.filter((name) =>
+            name.title.toLowerCase().includes(searchTerm.toLowerCase()))
+        setFilteredData(result)
+    }, [searchTerm])
 
+
+    const renderFilteredData = filteredData.map((val, i) => (
+        <div key={i}>
             <CustomChart key={i}
                 chartLabel={val.title}
                 background={val.bgColor}
@@ -48,67 +33,56 @@ const FilterActivites = ({ titleHead }) => {
                 pointerBorderColor={val.bgColor}
                 label={val.title}
             />
-        ))
-        setAllCharts(renderCharts)
-        setdef(renderCharts)
-    }, [])
-
-    // useEffect(() => {
-
-    //     if (searchTerm !== '') {
-    //         const searchFilter =  Arr && Arr.filter((chart) =>  chart.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())  )
-    //         setAllCharts(searchFilter)
-    //         console.log(searchFilter)
-    //     }
-    //      else {
-    //         setAllCharts(Arr.map((val) => val.title))
-    //     }
-    // }, [searchTerm])
+        </div>
+    ))
 
 
+    const onClick = (val) => {
+        let filteredCharts = [];
+
+        const defaultSort = val.option === "Default"
+        const SortByAscendingOrder = val.option === "Ascending"
+        const SortByDescendingOrder = val.option === "Descending"
+
+        SortByAscendingOrder && filteredCharts.push(...filteredData.sort((a, b) => ( a.title.localeCompare(b.title) )))
+        SortByDescendingOrder && filteredCharts.push(...filteredData.sort((a, b) => ( b.title.localeCompare(a.title) )))
+        defaultSort && filteredCharts.push(...allData)
+        setFilteredData(filteredCharts)
+        
+    }
 
 
     return (
         <ChartScreen>
             <div id="header" className='titlehead-positioning bg-white'>
-
-
                 <div className='loco flex lg:flex-row flex-col lg:items-center justify-between pt-16'>
                     <h1 className='x-class lg:text-2xl text-xl color-tet family-bold lg:pt-0 pt-4'>{titleHead}</h1>
-
                     <ActionCenterWrapper className='flex items-center lg:justify-center justify-between space-x-6 lg:py-8 py-2 lg:mt-0 mt-4'>
                         <div>
                             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} custom placeholder={'Search'} />
                         </div>
                         <div className='flex items-center space-x-2'>
-                            <FilterBar options={options} newSelected={'Default'} />
+                            <FilterBar options={options} onClick={onClick} newSelected={'Default'} />
                             <span className='opacity-40 '>|</span>
-                            <Button text={'Export'} />
+                            <Button text={`Export ${ filteredData.length > 0 ? filteredData.length : ''}`} />
                         </div>
-
                     </ActionCenterWrapper>
                 </div>
             </div>
 
             {titleHead === 'Efficiency Analytics' &&
-                <ChartsDisplay >
-                    {allCharts}
-                </ChartsDisplay>
-
+                <>
+                    {filteredData.length > 0 ? renderFilteredData : errorSearchResponse }
+                </>
             }
-            {titleHead !== 'Efficiency Analytics' &&
-                <div>No Data Available</div>
+            {
+                titleHead !== 'Efficiency Analytics' &&
+                <div>No Data Available...</div>
             }
-        </ChartScreen>
+        </ChartScreen >
     )
 }
 
-const ChartsDisplay = styled.div`
-    /* position: fixed;
-    top: 250px;
-    width: 100%; */
-    /* margin-top: 250px; */
-`
 
 const ChartScreen = styled.div`
     padding: 0 56px;

@@ -10,7 +10,7 @@ const FilterBar = ({ options, newSelected, label, onClick }) => {
 
     useEffect(() => { document.body.addEventListener('mousedown', handleClickOutside) })
     const handleClickOutside = (event) => {
-        zoptionsRef.current && !zoptionsRef.current.contains(event.target) && setSelected(newSelected)
+        zoptionsRef.current && !zoptionsRef.current.contains(event.target) && setIsDropped(false)
     };
 
 

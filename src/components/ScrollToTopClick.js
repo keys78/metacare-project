@@ -58,9 +58,8 @@ const ScrollToTopButton = styled(motion.button)`
     padding:0.5rem;
     border-radius: 9999px;
     background: #fff;
-    border:1px solid black;
+    border:1px solid #3E68FF;
     color:#fff;
-    font-size: 1rem;
     font-weight: 700;
 `
 
