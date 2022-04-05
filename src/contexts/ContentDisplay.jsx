@@ -3,17 +3,14 @@ import TabsNav from './TabsNav'
 import TopBar from './TopBar'
 import { ContentWrapper } from '../assets/css/GlobalStyled'
 
-const ContentDisplay = () => {
+const ContentDisplay = ({ setIsNavOpen, isNavOpen }) => {
     return (
-       <>
-        {/* <div className='border-2 border-black'> */}
+        <>
             <ContentWrapper>
-                <TopBar />
+                <TopBar setIsNavOpen={setIsNavOpen} isNavOpen={isNavOpen} />
             </ContentWrapper>
-            
             <TabsNav />
-              {/* </div> */}
-      </>
+        </>
     )
 }
 

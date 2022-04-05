@@ -4,7 +4,7 @@ import ActivityBar from '../components/ActivityBar'
 import SearchBar from '../components/SearchBar'
 import { List } from 'phosphor-react'
 
-const TopBar = () => {
+const TopBar = ({setIsNavOpen, isNavOpen}) => {
     return (
         <TopBarWrapper>
             <div>
@@ -16,7 +16,7 @@ const TopBar = () => {
             <div className="flex space-x-4 items-center">
                 <ActivityBar />
                 <HamburgerToggle>
-                <List size={30} color="#696D8C" weight="bold" />
+                <List size={30} onClick={() => setIsNavOpen(!isNavOpen)} color="#696D8C" weight="bold" />
                 </HamburgerToggle>
             </div>
         </TopBarWrapper>
@@ -48,6 +48,7 @@ const TopBarWrapper = styled.div`
 
 const HamburgerToggle = styled.div`
     display:none ;
+    position: relative ;
 
     
     @media screen and (max-width: 1280px){

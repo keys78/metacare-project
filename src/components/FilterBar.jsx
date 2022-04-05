@@ -68,7 +68,7 @@ const SelectBoxContainer = styled.div`
     
 
     @media screen and (max-width: 540px){
-        padding: 12px 10px 12px 8px;
+        padding: 11px 10px 11px 8px;
     }
     
 `
@@ -103,7 +103,6 @@ const Dropdown = styled.div`
         padding:5px 15px 6px 23px;
         text-align: left !important;
         transition: all .2s ease-in-out;
-        font-family: circular-std-book !important;
         color: #000 !important;
 
         &:hover{

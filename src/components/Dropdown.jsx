@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components';
-import { navLinks } from '../utils/data';
+import { motion } from 'framer-motion';
 
 const Dropdown = ({ renderNavLinks, renderIcons, options, activateLink }) => {
     const [isDropped, setIsDropped] = useState(false)
@@ -53,7 +53,7 @@ const Dropdown = ({ renderNavLinks, renderIcons, options, activateLink }) => {
     )
 }
 
-const SingleDropHandler = styled.div`
+const SingleDropHandler = styled(motion.div)`
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     align-items: center;
