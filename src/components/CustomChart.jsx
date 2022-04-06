@@ -1,10 +1,30 @@
-import React, { useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import styled from 'styled-components'
 import { Chart as ChartJS } from 'chart.js/auto'
+import { CategoryScale, Chart } from 'chart.js'
 import { UserData } from '../utils/data'
 
-const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, label}) => {
+const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, label, leno}) => {
+
+  Chart.register(CategoryScale);
+
+  let ref = useRef();
+
+  //  const exportChart = useCallback(() => {
+  //   leno()
+  //   console.log(ref)
+  // }, []);
+
+
+  // function exportT() {
+  //   const link = document.createElement("a");
+  //   link.download = "chart.png";
+  //   link.href = ref.current.toBase64Image();
+  //   link.click();
+
+  //   console.log(ref)
+  // }
 
   const [chartData, setChartData] = useState(
     {
@@ -29,9 +49,6 @@ const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, la
     plugins: {
       legend: {
         display: false,
-        // labels: {
-
-        // }
       }
     },
     borderColor: 'greeen',
@@ -86,7 +103,8 @@ const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, la
         </div>
 
         <div style={{ height: "200px" }}>
-          <Line data={chartData} options={options} />
+          {/* <button onClick={exportChart}>dowmkog</button> */}
+          <Line ref={ref} data={chartData} options={options} />
         </div>
 
       </ChartContainer>

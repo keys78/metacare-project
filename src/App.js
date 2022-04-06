@@ -17,9 +17,9 @@ function App() {
 
   return (
     <div>
-      {/* {isPageLoader ? <LoadingScreen /> : */}
+      {isPageLoader ? <LoadingScreen /> :
         <Dashboard />
-      {/* } */}
+    }
     </div>
   );
 }

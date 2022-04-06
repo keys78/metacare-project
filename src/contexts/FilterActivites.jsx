@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import Button from '../components/Button'
 import FilterBar from '../components/FilterBar'
 import SearchBar from '../components/SearchBar'
@@ -11,9 +11,11 @@ import { filterOptions as options, chartData, errorSearchResponse } from '../uti
 
 
 const FilterActivites = ({ titleHead }) => {
+
     const [searchTerm, setSearchTerm] = useState('')
     const [allData, setAllData] = useState(chartData);
     const [filteredData, setFilteredData] = useState(allData);
+    let ref = useRef(null);
 
 
     useEffect(() => {
@@ -21,8 +23,18 @@ const FilterActivites = ({ titleHead }) => {
         result = allData && allData.filter((name) =>
             name.title.toLowerCase().includes(searchTerm.toLowerCase()))
         setFilteredData(result)
+        console.log(ref)
     }, [searchTerm])
 
+
+    function exportT() {
+        const link = document.createElement("a");
+        link.download = "chart.png";
+        link.href = ref.current.toBase64Image();
+        link.click();
+    
+        console.log(ref)
+      }
 
     const renderFilteredData = filteredData.map((val, i) => (
         <div key={i}>
@@ -32,10 +44,18 @@ const FilterActivites = ({ titleHead }) => {
                 borderColor={val.bgColor}
                 pointerBorderColor={val.bgColor}
                 label={val.title}
+                // leno={exportT()}
             />
         </div>
     ))
 
+    // const exportChart = useCallback(() => {
+    //     const link = document.createElement("a");
+    //     link.download = "chart.png";
+    //     link.href = ref.current.toBase64Image();
+    //     link.click();
+    //   }, []);
+    
 
     const onClick = (val) => {
         let filteredCharts = [];
@@ -62,9 +82,15 @@ const FilterActivites = ({ titleHead }) => {
                             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} custom placeholder={'Search'} />
                         </div>
                         <div className='flex items-center space-x-2'>
-                            <FilterBar options={options} onClick={onClick} newSelected={'Default'} />
+                            <FilterBar 
+                            options={options} 
+                            onClick={onClick} 
+                            newSelected={'Default'}
+                             />
                             <span className='opacity-40 '>|</span>
-                            <Button text={`Export ${ filteredData.length > 0 ? filteredData.length : ''}`} />
+                            <Button  
+                            onClick={() => alert('dac')}
+                            text={`Export ${ filteredData.length > 0 ? filteredData.length : ''}`} />
                         </div>
                     </ActionCenterWrapper>
                 </div>

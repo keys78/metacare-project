@@ -17,7 +17,7 @@ const TabsNav = () => {
             <Tabs>
                 {tabContent.map((tab, idx) => (
                     <Tabs.TabPane key={`Tab ${idx}`} tab={tab.title}>
-                        <div>
+                        <div key={idx}>
                             {tab.content}
                         </div>
 
