@@ -56,7 +56,7 @@ export const chartData = [
 export const errorSearchResponse = [
     <div className="w-full flex justify-center">
         <div>
-            <img className="w-36" src="images/funny_cat.gif" alt="placeholder" />
+            <img className="sm:w-36 w-28" src="images/funny_cat.gif" alt="placeholder" />
             <h1>No results found for this search...</h1>
         </div>
     </div>

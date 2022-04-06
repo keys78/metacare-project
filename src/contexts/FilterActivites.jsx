@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { useState, useEffect, createRef} from 'react'
 import Button from '../components/Button'
 import FilterBar from '../components/FilterBar'
 import SearchBar from '../components/SearchBar'
@@ -9,32 +9,19 @@ import { filterOptions as options, chartData, errorSearchResponse } from '../uti
 
 
 
-
 const FilterActivites = ({ titleHead }) => {
 
     const [searchTerm, setSearchTerm] = useState('')
     const [allData, setAllData] = useState(chartData);
     const [filteredData, setFilteredData] = useState(allData);
-    let ref = useRef(null);
-
 
     useEffect(() => {
         let result = [];
         result = allData && allData.filter((name) =>
             name.title.toLowerCase().includes(searchTerm.toLowerCase()))
         setFilteredData(result)
-        console.log(ref)
     }, [searchTerm])
 
-
-    function exportT() {
-        const link = document.createElement("a");
-        link.download = "chart.png";
-        link.href = ref.current.toBase64Image();
-        link.click();
-    
-        console.log(ref)
-      }
 
     const renderFilteredData = filteredData.map((val, i) => (
         <div key={i}>
@@ -44,18 +31,13 @@ const FilterActivites = ({ titleHead }) => {
                 borderColor={val.bgColor}
                 pointerBorderColor={val.bgColor}
                 label={val.title}
-                // leno={exportT()}
             />
         </div>
     ))
 
-    // const exportChart = useCallback(() => {
-    //     const link = document.createElement("a");
-    //     link.download = "chart.png";
-    //     link.href = ref.current.toBase64Image();
-    //     link.click();
-    //   }, []);
-    
+  
+
+
 
     const onClick = (val) => {
         let filteredCharts = [];
@@ -89,8 +71,8 @@ const FilterActivites = ({ titleHead }) => {
                              />
                             <span className='opacity-40 '>|</span>
                             <Button  
-                            onClick={() => alert('dac')}
-                            text={`Export ${ filteredData.length > 0 ? filteredData.length : ''}`} />
+                            onClick={() => alert(`(${filteredData.length}) charts exported`)}
+                            text={`Export (${ filteredData.length > 0 ? filteredData.length : ''})`} />
                         </div>
                     </ActionCenterWrapper>
                 </div>

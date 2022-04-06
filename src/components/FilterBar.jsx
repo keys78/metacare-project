@@ -40,7 +40,7 @@ const FilterBar = ({ options, newSelected, label, onClick }) => {
 }
 
 const SelectBoxWrapper = styled.div`
-    position: relative;
+    /* position: relative; */
     width: 160px;
 
     @media screen and (max-width: 640px){
@@ -98,6 +98,19 @@ const Dropdown = styled.div`
     width: 100%;
     border-radius: 10px;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+    width: 160px;
+
+    @media screen and (max-width: 640px){
+       width: 140px;
+    }
+    @media screen and (max-width: 540px){
+       width: 110px;
+
+    }
+    @media screen and (max-width: 400px){
+       width: 100px;
+
+    }
 
     h5 {
         padding:5px 15px 6px 23px;

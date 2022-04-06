@@ -5,28 +5,22 @@ import { Chart as ChartJS } from 'chart.js/auto'
 import { CategoryScale, Chart } from 'chart.js'
 import { UserData } from '../utils/data'
 
-const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, label, leno}) => {
+const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, label, }) => {
 
   Chart.register(CategoryScale);
 
-  let ref = useRef();
+  let ref = useRef(null);
 
-  //  const exportChart = useCallback(() => {
-  //   leno()
-  //   console.log(ref)
-  // }, []);
+  let exportChart = useCallback(() => {
+    const link = document.createElement("a");
+    link.download = "chart.png";
+    link.href = ref.current.toBase64Image();
+    link.click();
+  }, []);
 
 
-  // function exportT() {
-  //   const link = document.createElement("a");
-  //   link.download = "chart.png";
-  //   link.href = ref.current.toBase64Image();
-  //   link.click();
 
-  //   console.log(ref)
-  // }
-
-  const [chartData, setChartData] = useState(
+  const [chartData] = useState(
     {
         labels: UserData.map((data) => data.month),
         datasets: [{
@@ -103,7 +97,6 @@ const CustomChart = ({ chartLabel, background, borderColor, pointBorderColor, la
         </div>
 
         <div style={{ height: "200px" }}>
-          {/* <button onClick={exportChart}>dowmkog</button> */}
           <Line ref={ref} data={chartData} options={options} />
         </div>
 
